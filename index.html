@@ -315,7 +315,7 @@
     const filtered = allProducts.filter(p => {
       const matchCat = activeCategory === "All" || p.category === activeCategory;
       const matchSub = activeSubcategory === "All" || p.subcategory === activeSubcategory;
-      const matchQ   = p.name.toLowerCase().includes(q);
+      const matchQ   = (p.name || '').toLowerCase().includes(q);
       return matchCat && matchSub && matchQ;
     });
     renderGrid("mainGrid", filtered);
